@@ -1,0 +1,71 @@
+
+/* index.css or tailwind.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: black
+ 
+}
+.activemobile {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.bubbles-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -10;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background: rgba(122, 215, 234, 0.7);
+  border-radius: 50%;
+  animation: rise 10s linear infinite;
+  opacity: 0.7;
+}
+
+/* Create variation for each bubble */
+.bubble:nth-child(odd) {
+  width: 15px;
+  height: 15px;
+  animation-duration: 8s;
+  background: rgba(122, 215, 234, 0.5);
+}
+
+.bubble:nth-child(even) {
+  width: 25px;
+  height: 25px;
+  animation-duration: 12s;
+  background: rgba(122, 215, 234, 0.9);
+}
+
+/* Keyframes for rising animation */
+@keyframes rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Randomly position bubbles horizontally */
+.bubble:nth-child(1) { left: 5%; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 15%; animation-delay: 1s; }
+.bubble:nth-child(3) { left: 25%; animation-delay: 2s; }
+.bubble:nth-child(4) { left: 35%; animation-delay: 3s; }
+.bubble:nth-child(5) { left: 45%; animation-delay: 4s; }
+/* ... add as many as your bubbles count */
